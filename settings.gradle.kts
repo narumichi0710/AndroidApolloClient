@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "AndroidApolloClient"
 include(":app")
+include(":feature:github")
