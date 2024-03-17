@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.feature.github"
+    namespace = "com.example.core.data"
     compileSdk = 34
 
     defaultConfig {
@@ -31,7 +31,6 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:data"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
