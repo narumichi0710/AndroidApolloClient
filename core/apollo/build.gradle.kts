@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
@@ -25,10 +27,12 @@ android {
             )
         }
         getByName("debug") {
+            val localProperties = Properties()
+            localProperties.load(project.rootProject.file("local.properties").inputStream())
             buildConfigField(
                 "String",
                 "GITHUB_TOKEN",
-                "${project.findProperty("GITHUB_TOKEN")}"
+                localProperties.getProperty("GITHUB_TOKEN")
             )
         }
     }
