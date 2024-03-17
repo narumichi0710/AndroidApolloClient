@@ -1,4 +1,4 @@
-package com.example.data
+package com.example.core.apollo
 
 import org.junit.Test
 

@@ -1,13 +1,17 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
+    alias(libs.plugins.hilt)
+    kotlin("kapt")
 }
 
 android {
-    namespace = "com.example.core.data"
+    namespace = "com.example.core.apollo"
     compileSdk = 34
 
     defaultConfig {
+        minSdk = 26
+
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
@@ -31,6 +35,12 @@ android {
 }
 
 dependencies {
+
+    implementation(libs.apollo.runtime)
+    implementation(libs.apollo.normalized.cache.sqlite)
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
