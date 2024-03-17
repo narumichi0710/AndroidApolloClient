@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.apollo)
     kotlin("kapt")
 }
 
@@ -48,7 +49,13 @@ android {
     buildFeatures {
         buildConfig = true
     }
+}
 
+apollo {
+    service("service") {
+        packageName.set("com.example.core.apollo")
+        generateApolloMetadata.set(true)
+    }
 }
 
 dependencies {
