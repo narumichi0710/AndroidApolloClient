@@ -52,17 +52,15 @@ android {
 }
 
 apollo {
-    service("service") {
-        packageName.set("com.example.core.apollo")
+    service("sample") {
+        packageName.set("sample")
         generateApolloMetadata.set(true)
     }
 }
 
 dependencies {
-
     implementation(libs.apollo.runtime)
     implementation(libs.apollo.normalized.cache.sqlite)
-
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
 

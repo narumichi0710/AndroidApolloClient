@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.jetbrainsKotlinAndroid)
     alias(libs.plugins.hilt)
+    alias(libs.plugins.apollo)
     kotlin("kapt")
 }
 
@@ -32,11 +33,20 @@ android {
     }
 }
 
+apollo {
+    service("sample") {
+        packageName.set("sample")
+        srcDir(rootProject.file("feature/github/src/main/graphpl/"))
+    }
+}
+
 dependencies {
+    apolloMetadata(project(":core:apollo"))
     implementation(project(":core:apollo"))
 
     implementation(libs.apollo.runtime)
     implementation(libs.hilt.android)
+
     kapt(libs.hilt.compiler)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
